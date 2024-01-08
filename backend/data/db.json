@@ -29,12 +29,6 @@
       "category": "linux",
       "front": "create a new file",
       "back": "touch index.html"
-    },
-    {
-      "suuid": "QVGahi",
-      "category": "Python",
-      "front": "CHANGED front",
-      "back": "CHANGED back"
     }
   ]
 }

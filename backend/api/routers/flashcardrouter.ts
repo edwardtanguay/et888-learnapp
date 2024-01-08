@@ -46,7 +46,12 @@ flashcardRouter.patch('/:suuid', async (req, res) => {
 	}
 });
 
-flashcardRouter.delete('/:suuid', (req, res) => {
+flashcardRouter.delete('/:suuid', async (req, res) => {
 	const suuid = req.params.suuid;
-	res.json(`delete flashcard with suuid ${suuid}`);
+	const deletedFlashcard = await flashcardHandlers.deleteFlashcard(suuid);
+	if (deletedFlashcard) {
+		res.json(deletedFlashcard);
+	} else {
+		res.status(404).json(`Flashcard with suuid "${suuid}" not found.`)
+	}
 })

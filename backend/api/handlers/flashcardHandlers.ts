@@ -18,7 +18,7 @@ export const getOneFlashcard = (suuid: string) => {
 }
 
 export const addFlashcard = async (newFlashcard: INewFlashcard) => {
-	const flashcard:IFlashcard = {
+	const flashcard: IFlashcard = {
 		suuid: getSuuid(),
 		...newFlashcard,
 	}
@@ -43,11 +43,26 @@ export const replaceFlashcard = async (replacementFlashcard: IFlashcard) => {
 export const replaceSomeFieldsInFlashcard = async (suuid: string, patchFlashcard: IPatchFlashcard) => {
 	const formerFlashcard = db.data.flashcards.find(m => m.suuid === suuid);
 	if (formerFlashcard) {
-		if(patchFlashcard.category) formerFlashcard.category = patchFlashcard.category;
-		if(patchFlashcard.front) formerFlashcard.front = patchFlashcard.front;
-		if(patchFlashcard.back) formerFlashcard.back = patchFlashcard.back;
+		if (patchFlashcard.category) formerFlashcard.category = patchFlashcard.category;
+		if (patchFlashcard.front) formerFlashcard.front = patchFlashcard.front;
+		if (patchFlashcard.back) formerFlashcard.back = patchFlashcard.back;
 		await db.write();
 		return formerFlashcard;
+	} else {
+		return null;
+	}
+}
+
+export const deleteFlashcard = async (suuid: string) => {
+	const flashcard = db.data.flashcards.find(m => m.suuid === suuid);
+	const indexToRemove = db.data.flashcards.findIndex(item => item.suuid === suuid);
+	if (indexToRemove !== -1) {
+		db.data.flashcards.splice(indexToRemove, 1);
+	}
+
+	if (flashcard) {
+		await db.write();
+		return flashcard;
 	} else {
 		return null;
 	}
