@@ -14,12 +14,14 @@ flashcardRouter.get('/:suuid', (req, res) => {
 	if (flashcard) {
 		res.json(flashcard);
 	} else {
-		res.json(`Flashcard with suuid "${suuid}" not found.`)
+		res.status(404).json(`Flashcard with suuid "${suuid}" not found.`)
 	}
 });
 
-flashcardRouter.post('/', (_req, res) => {
-	res.json('create flashcard');
+flashcardRouter.post('/', (req, res) => {
+	const newFlashcard = req.body;
+	flashcardHandlers.addFlashcard(newFlashcard);
+	res.json('testing...');
 });
 
 flashcardRouter.put('/:suuid', (req, res) => {

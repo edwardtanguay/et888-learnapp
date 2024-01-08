@@ -1,4 +1,5 @@
-import { getDb } from './dbtools';
+import { IFlashcard, INewFlashcard } from '../../interfaces';
+import { getDb, getSuuid } from './dbtools';
 
 const db = await getDb();
 
@@ -14,4 +15,12 @@ export const getOneFlashcard = (suuid: string) => {
 	} else {
 		return null;
 	}
+}
+
+export const addFlashcard = (newFlashcard: INewFlashcard) => {
+	const flashcard:IFlashcard = {
+		suuid: getSuuid(),
+		...newFlashcard,
+	}
+	console.log(flashcard);
 }

@@ -2,6 +2,7 @@ import express from 'express';
 import { flashcardRouter } from './routers/flashcardrouter';
 
 export const app = express();
+app.use(express.json());
 
 app.get('/', (req, res) => {
 	res.json({

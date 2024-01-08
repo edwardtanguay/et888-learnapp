@@ -11,3 +11,7 @@ export const getDb = async () => {
 	await db.read();
 	return db;
 }
+
+export const getSuuid = () => {
+	return 'aaaaaa';
+}
