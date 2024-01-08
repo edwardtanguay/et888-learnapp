@@ -1,3 +1,4 @@
 - TODO
 	- bring db up to index.ts and pass it down
 		- at index.ts, make sure it is not undefined, or fail the API completely
+	- flashcardHandlers: all functions with try/catch

@@ -18,10 +18,10 @@ flashcardRouter.get('/:suuid', (req, res) => {
 	}
 });
 
-flashcardRouter.post('/', (req, res) => {
+flashcardRouter.post('/', async (req, res) => {
 	const newFlashcard = req.body;
-	flashcardHandlers.addFlashcard(newFlashcard);
-	res.json('testing...');
+	const flashcard = await flashcardHandlers.addFlashcard(newFlashcard);
+	res.json(flashcard);
 });
 
 flashcardRouter.put('/:suuid', (req, res) => {
