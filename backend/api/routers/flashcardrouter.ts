@@ -10,7 +10,12 @@ flashcardRouter.get('/', (_req, res) => {
 
 flashcardRouter.get('/:suuid', (req, res) => {
 	const suuid = req.params.suuid;
-	res.json(`get one flashcard with suuid ${suuid}`);
+	const flashcard = flashcardHandlers.getOneFlashcard(suuid);
+	if (flashcard) {
+		res.json(flashcard);
+	} else {
+		res.json(`Flashcard with suuid "${suuid}" not found.`)
+	}
 });
 
 flashcardRouter.post('/', (_req, res) => {
