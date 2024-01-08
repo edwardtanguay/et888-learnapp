@@ -1,4 +1,4 @@
-import { IFlashcard, INewFlashcard } from '../../interfaces';
+import { IFlashcard, INewFlashcard, IPatchFlashcard } from '../../interfaces';
 import { getDb, getSuuid } from './dbtools';
 
 const db = await getDb();
@@ -33,6 +33,19 @@ export const replaceFlashcard = async (replacementFlashcard: IFlashcard) => {
 		formerFlashcard.category = replacementFlashcard.category;
 		formerFlashcard.front = replacementFlashcard.front;
 		formerFlashcard.back = replacementFlashcard.back;
+		await db.write();
+		return formerFlashcard;
+	} else {
+		return null;
+	}
+}
+
+export const replaceSomeFieldsInFlashcard = async (suuid: string, patchFlashcard: IPatchFlashcard) => {
+	const formerFlashcard = db.data.flashcards.find(m => m.suuid === suuid);
+	if (formerFlashcard) {
+		if(patchFlashcard.category) formerFlashcard.category = patchFlashcard.category;
+		if(patchFlashcard.front) formerFlashcard.front = patchFlashcard.front;
+		if(patchFlashcard.back) formerFlashcard.back = patchFlashcard.back;
 		await db.write();
 		return formerFlashcard;
 	} else {
