@@ -32,9 +32,9 @@
     },
     {
       "suuid": "QVGahi",
-      "category": "ccc",
-      "front": "fff",
-      "back": "bbb"
+      "category": "CHANGED ccc",
+      "front": "CHANGED front",
+      "back": "CHANGED back"
     }
   ]
 }

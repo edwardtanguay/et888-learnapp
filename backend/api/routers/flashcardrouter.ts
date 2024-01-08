@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import * as flashcardHandlers from '../handlers/flashcardHandlers';
+import { IFlashcard, INewFlashcard } from '../../interfaces';
 
 export const flashcardRouter = Router();
 
@@ -19,14 +20,19 @@ flashcardRouter.get('/:suuid', (req, res) => {
 });
 
 flashcardRouter.post('/', async (req, res) => {
-	const newFlashcard = req.body;
+	const newFlashcard: INewFlashcard = req.body;
 	const flashcard = await flashcardHandlers.addFlashcard(newFlashcard);
 	res.json(flashcard);
 });
 
-flashcardRouter.put('/:suuid', (req, res) => {
-	const suuid = req.params.suuid;
-	res.json(`replace all fields flashcard with suuid ${suuid}`);
+flashcardRouter.put('/', async (req, res) => {
+	const flashcard: IFlashcard = req.body;
+	const replacedFlashcard = await flashcardHandlers.replaceFlashcard(flashcard);
+	if (replacedFlashcard) {
+		res.json(replacedFlashcard);
+	} else {
+		res.status(404).json(`Flashcard with suuid "${flashcard.suuid}" not found.`)
+	}
 });
 
 flashcardRouter.patch('/:suuid', (req, res) => {

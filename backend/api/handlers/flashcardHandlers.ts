@@ -26,3 +26,16 @@ export const addFlashcard = async (newFlashcard: INewFlashcard) => {
 	await db.write();
 	return flashcard;
 }
+
+export const replaceFlashcard = async (replacementFlashcard: IFlashcard) => {
+	const formerFlashcard = db.data.flashcards.find(m => m.suuid === replacementFlashcard.suuid);
+	if (formerFlashcard) {
+		formerFlashcard.category = replacementFlashcard.category;
+		formerFlashcard.front = replacementFlashcard.front;
+		formerFlashcard.back = replacementFlashcard.back;
+		await db.write();
+		return formerFlashcard;
+	} else {
+		return null;
+	}
+}
