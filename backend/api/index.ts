@@ -1,5 +1,14 @@
-const showMessage = (text: string) => {
-	console.log(text);
-}
+import express from 'express';
+import * as config from './config';
 
-showMessage('backend api works');
+const app = express();
+
+app.get('/', (req, res) => {
+	res.json({
+		appName: "API for AppLearn version 0.1"
+	})
+});
+
+app.listen(config.getPort(), () => {
+	console.log(`http://localhost:${config.getPort()}`);
+});
