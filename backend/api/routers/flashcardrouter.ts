@@ -1,9 +1,11 @@
 import { Router } from 'express';
+import * as flashcardHandlers from '../handlers/flashcardHandlers';
 
 export const flashcardRouter = Router();
 
 flashcardRouter.get('/', (_req, res) => {
-	res.json('get all flashcards');
+	const flashcards = flashcardHandlers.getAllFlashcards();
+	res.json(flashcards);
 });
 
 flashcardRouter.get('/:suuid', (req, res) => {
