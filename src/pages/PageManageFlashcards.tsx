@@ -1,8 +1,9 @@
 import { useContext } from "react";
 import { AppContext } from "../AppContext";
-import { MdModeEditOutline } from "react-icons/md";
+import { MdModeEditOutline, MdCancel } from "react-icons/md";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { SiOneplus } from "react-icons/si";
+import { FaSave } from "react-icons/fa";
 
 export const PageManageFlashcards = () => {
 	const { flashcards } = useContext(AppContext);
@@ -25,6 +26,24 @@ export const PageManageFlashcards = () => {
 					</tr>
 				</thead>
 				<tbody>
+					<tr>
+						<td></td>
+						<td>
+							<input className="w-full" />
+						</td>
+						<td>
+							<input className="w-full" />
+						</td>
+						<td>
+							<input className="w-full" />
+						</td>
+						<td>
+							<div className="flex gap-1">
+								<FaSave  className="cursor-pointer hover:text-green-900"/>
+								<MdCancel  className="cursor-pointer hover:text-red-900"/>
+							</div>
+						</td>
+					</tr>
 					{flashcards.map((flashcard) => {
 						return (
 							<tr key={flashcard.suuid}>
