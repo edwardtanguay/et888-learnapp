@@ -19,7 +19,7 @@ export const PageManageFlashcards = () => {
 				<tbody>
 					{flashcards.map(flashcard => {
 						return (
-							<tr>
+							<tr key={flashcard.suuid}>
 								<td>nnn</td>
 								<td>nnn</td>
 								<td>nnn</td>
