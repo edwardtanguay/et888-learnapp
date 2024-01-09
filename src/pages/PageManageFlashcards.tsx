@@ -7,12 +7,12 @@ import { FaSave } from "react-icons/fa";
 
 export const PageManageFlashcards = () => {
 	const { flashcards } = useContext(AppContext);
-	const [isAddingFlashcard, setIsAddingFlashcard] = useState(true);
+	const [isAddingFlashcard, setIsAddingFlashcard] = useState(false);
 	return (
 		<>
 			<p>There are {flashcards.length} flashcards:</p>
 
-			<table className="dataTable mt-4">
+			<table className="dataTable mt-4 w-[60rem]">
 				<thead>
 					<tr>
 						<th>SUUID</th>
@@ -21,7 +21,7 @@ export const PageManageFlashcards = () => {
 						<th>Back</th>
 						<th>
 							<div className="flex justify-center text-[#222] text-2xl">
-								<SiOneplus className="cursor-pointer hover:text-green-900" />
+								<SiOneplus onClick={() => setIsAddingFlashcard(!isAddingFlashcard)} className="cursor-pointer hover:text-green-900" />
 							</div>
 						</th>
 					</tr>
