@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AppContext } from "../AppContext";
 import { MdModeEditOutline, MdCancel } from "react-icons/md";
 import { RiDeleteBin6Line } from "react-icons/ri";
@@ -7,6 +7,7 @@ import { FaSave } from "react-icons/fa";
 
 export const PageManageFlashcards = () => {
 	const { flashcards } = useContext(AppContext);
+	const [isAddingFlashcard, setIsAddingFlashcard] = useState(true);
 	return (
 		<>
 			<p>There are {flashcards.length} flashcards:</p>
@@ -26,6 +27,7 @@ export const PageManageFlashcards = () => {
 					</tr>
 				</thead>
 				<tbody>
+					{isAddingFlashcard && (
 					<tr>
 						<td></td>
 						<td>
@@ -44,6 +46,7 @@ export const PageManageFlashcards = () => {
 							</div>
 						</td>
 					</tr>
+					)}
 					{flashcards.map((flashcard) => {
 						return (
 							<tr key={flashcard.suuid}>
