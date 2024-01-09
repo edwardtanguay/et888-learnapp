@@ -10,7 +10,7 @@ export const PageManageFlashcards = () => {
 	const { flashcards } = useContext(AppContext);
 	const [isAddingFlashcard, setIsAddingFlashcard] = useState(false);
 	const [newFlashcard, setNewFlashcard] =
-		useState<INewFlashcard>(blankNewFlashcard);
+		useState<INewFlashcard>(structuredClone(blankNewFlashcard));
 
 	const handleChangeNewFlashcardField = (
 		e: ChangeEvent<HTMLInputElement>,
@@ -31,6 +31,11 @@ export const PageManageFlashcards = () => {
 		const _newFlashcard = structuredClone(newFlashcard);
 		setNewFlashcard(_newFlashcard);
 	};
+
+	const handleCancelAddFlashcard = () => {
+		setIsAddingFlashcard(false);
+		setNewFlashcard(structuredClone(blankNewFlashcard));
+	}
 
 	return (
 		<>
@@ -101,7 +106,7 @@ export const PageManageFlashcards = () => {
 								<td>
 									<div className="flex gap-1">
 										<FaSave className="cursor-pointer hover:text-green-900" />
-										<MdCancel className="cursor-pointer hover:text-red-900" />
+										<MdCancel onClick={handleCancelAddFlashcard} className="cursor-pointer hover:text-red-900" />
 									</div>
 								</td>
 							</tr>
