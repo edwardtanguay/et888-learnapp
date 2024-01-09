@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import * as flashcardHandlers from '../handlers/flashcardHandlers';
-import { IFlashcard, INewFlashcard, IPatchFlashcard } from '../../interfaces';
+import { IFlashcard, INewFlashcard, IPatchFlashcard } from '../../../src/shared/interfaces';
 
 export const flashcardRouter = Router();
 
