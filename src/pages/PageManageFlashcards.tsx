@@ -19,7 +19,7 @@ export const PageManageFlashcards = () => {
 						<th>Back</th>
 						<th>
 							<div className="flex justify-center text-[#222] text-2xl">
-								<SiOneplus />
+								<SiOneplus className="cursor-pointer hover:text-green-900" />
 							</div>
 						</th>
 					</tr>
@@ -34,8 +34,8 @@ export const PageManageFlashcards = () => {
 								<td>{flashcard.back}</td>
 								<td>
 									<div className="flex gap-1">
-										<MdModeEditOutline />
-										<RiDeleteBin6Line />
+										<MdModeEditOutline className="cursor-pointer hover:text-green-900" />
+										<RiDeleteBin6Line className="cursor-pointer hover:text-red-900" />
 									</div>
 								</td>
 							</tr>
