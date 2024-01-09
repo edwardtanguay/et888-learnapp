@@ -4,6 +4,12 @@ export interface INewFlashcard {
 	back: string;
 }
 
+export const blankNewFlashcard: INewFlashcard = {
+	category: 'linux',
+	front: '',
+	back: ''
+}
+
 export interface IFlashcard extends INewFlashcard {
 	suuid: string;
 }
