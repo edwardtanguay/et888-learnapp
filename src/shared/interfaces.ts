@@ -23,3 +23,7 @@ export interface IPatchFlashcard {
 export interface IDatabase {
 	flashcards: IFlashcard[];
 }
+
+export interface IPromiseResolution {
+	message: string;
+}

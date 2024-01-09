@@ -22,7 +22,7 @@ flashcardRouter.get('/:suuid', (req, res) => {
 flashcardRouter.post('/', async (req, res) => {
 	const newFlashcard: INewFlashcard = req.body;
 	const flashcard = await flashcardHandlers.addFlashcard(newFlashcard);
-	res.json(flashcard);
+	res.status(201).json(flashcard);
 });
 
 flashcardRouter.put('/', async (req, res) => {

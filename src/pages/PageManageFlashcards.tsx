@@ -9,8 +9,9 @@ import { INewFlashcard, blankNewFlashcard } from "../shared/interfaces";
 export const PageManageFlashcards = () => {
 	const { flashcards, saveAddFlashcard } = useContext(AppContext);
 	const [isAddingFlashcard, setIsAddingFlashcard] = useState(false);
-	const [newFlashcard, setNewFlashcard] =
-		useState<INewFlashcard>(structuredClone(blankNewFlashcard));
+	const [newFlashcard, setNewFlashcard] = useState<INewFlashcard>(
+		structuredClone(blankNewFlashcard)
+	);
 
 	const handleChangeNewFlashcardField = (
 		e: ChangeEvent<HTMLInputElement>,
@@ -35,11 +36,16 @@ export const PageManageFlashcards = () => {
 	const handleCancelAddFlashcard = () => {
 		setIsAddingFlashcard(false);
 		setNewFlashcard(structuredClone(blankNewFlashcard));
-	}
+	};
 
 	const handleSaveAddFlashcard = () => {
-		saveAddFlashcard(newFlashcard);
-	}
+		(async () => {
+			const response = await saveAddFlashcard(newFlashcard);
+			if (response.message === 'ok') {
+				handleCancelAddFlashcard();
+			}
+		})();
+	};
 
 	return (
 		<>
@@ -109,8 +115,14 @@ export const PageManageFlashcards = () => {
 								</td>
 								<td>
 									<div className="flex gap-1">
-										<FaSave onClick={handleSaveAddFlashcard} className="cursor-pointer hover:text-green-900" />
-										<MdCancel onClick={handleCancelAddFlashcard} className="cursor-pointer hover:text-red-900" />
+										<FaSave
+											onClick={handleSaveAddFlashcard}
+											className="cursor-pointer hover:text-green-900"
+										/>
+										<MdCancel
+											onClick={handleCancelAddFlashcard}
+											className="cursor-pointer hover:text-red-900"
+										/>
 									</div>
 								</td>
 							</tr>
