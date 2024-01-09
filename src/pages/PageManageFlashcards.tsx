@@ -7,7 +7,7 @@ import { FaSave } from "react-icons/fa";
 import { INewFlashcard, blankNewFlashcard } from "../shared/interfaces";
 
 export const PageManageFlashcards = () => {
-	const { flashcards } = useContext(AppContext);
+	const { flashcards, saveAddFlashcard } = useContext(AppContext);
 	const [isAddingFlashcard, setIsAddingFlashcard] = useState(false);
 	const [newFlashcard, setNewFlashcard] =
 		useState<INewFlashcard>(structuredClone(blankNewFlashcard));
@@ -35,6 +35,10 @@ export const PageManageFlashcards = () => {
 	const handleCancelAddFlashcard = () => {
 		setIsAddingFlashcard(false);
 		setNewFlashcard(structuredClone(blankNewFlashcard));
+	}
+
+	const handleSaveAddFlashcard = () => {
+		saveAddFlashcard(newFlashcard);
 	}
 
 	return (
@@ -105,7 +109,7 @@ export const PageManageFlashcards = () => {
 								</td>
 								<td>
 									<div className="flex gap-1">
-										<FaSave className="cursor-pointer hover:text-green-900" />
+										<FaSave onClick={handleSaveAddFlashcard} className="cursor-pointer hover:text-green-900" />
 										<MdCancel onClick={handleCancelAddFlashcard} className="cursor-pointer hover:text-red-900" />
 									</div>
 								</td>

@@ -29,6 +29,18 @@
       "category": "linux",
       "front": "create a new file",
       "back": "touch index.html"
+    },
+    {
+      "suuid": "K83Bm5",
+      "category": "linux",
+      "front": "222",
+      "back": "333"
+    },
+    {
+      "suuid": "0ivfwB",
+      "category": "linux",
+      "front": "777",
+      "back": "888"
     }
   ]
 }
