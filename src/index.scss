@@ -11,3 +11,41 @@
 a.active {
 	color: rgb(232, 232, 141);
 }
+
+/* DATA TABLE */
+
+table.dataTable {
+	$border: #3e4a5c;
+	$dataRowColor: #64748B;
+
+	thead {
+		tr {
+			th {
+				background-color: #536073;
+				color: #ccc;
+				border-left: 1px solid $border;
+				padding: .5rem;
+				text-align: left;
+			}
+
+			border-bottom: 1px solid $border;
+		}
+	}
+	tbody {
+		tr {
+			td {
+				background-color: $dataRowColor;
+				color: #222;
+				border-left: 1px solid $border;
+				padding: .5rem;
+
+				&:first-child {
+					font-family: monospace;
+				}
+			}
+			&:nth-child(even) td {
+				background-color: darken($dataRowColor, 5%);
+			}
+		}
+	}
+}
