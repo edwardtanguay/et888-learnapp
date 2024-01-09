@@ -21,6 +21,12 @@ export const PageManageFlashcards = () => {
 			case "category":
 				newFlashcard.category = value;
 				break;
+			case "front":
+				newFlashcard.front = value;
+				break;
+			case "back":
+				newFlashcard.back = value;
+				break;
 		}
 		const _newFlashcard = structuredClone(newFlashcard);
 		setNewFlashcard(_newFlashcard);
@@ -71,12 +77,24 @@ export const PageManageFlashcards = () => {
 								<td>
 									<input
 										value={newFlashcard.front}
+										onChange={(e) =>
+											handleChangeNewFlashcardField(
+												e,
+												"front"
+											)
+										}
 										className="w-full"
 									/>
 								</td>
 								<td>
 									<input
 										value={newFlashcard.back}
+										onChange={(e) =>
+											handleChangeNewFlashcardField(
+												e,
+												"back"
+											)
+										}
 										className="w-full"
 									/>
 								</td>
