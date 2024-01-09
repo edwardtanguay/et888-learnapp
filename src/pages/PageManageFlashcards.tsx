@@ -20,10 +20,10 @@ export const PageManageFlashcards = () => {
 					{flashcards.map(flashcard => {
 						return (
 							<tr key={flashcard.suuid}>
-								<td>nnn</td>
-								<td>nnn</td>
-								<td>nnn</td>
-								<td>nnn</td>
+								<td>{flashcard.suuid}</td>
+								<td>{flashcard.category}</td>
+								<td>{flashcard.front}</td>
+								<td>{flashcard.back}</td>
 							</tr>
 						)
 					})}
