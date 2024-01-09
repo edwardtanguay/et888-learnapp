@@ -7,7 +7,7 @@ export const PageManageFlashcards = () => {
 		<>
 		<p>There are {flashcards.length} flashcards:</p>
 
-		<table className="dataTable">
+		<table className="dataTable mt-4">
 				<thead>
 					<tr>
 						<th>SUUID</th>
