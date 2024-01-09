@@ -29,60 +29,6 @@
       "category": "linux",
       "front": "create a new file",
       "back": "touch index.html"
-    },
-    {
-      "suuid": "IircrT",
-      "category": "linux",
-      "front": "111",
-      "back": "222"
-    },
-    {
-      "suuid": "HyLnqk",
-      "category": "linux",
-      "front": "444",
-      "back": "555"
-    },
-    {
-      "suuid": "UB65OT",
-      "category": "linux",
-      "front": "666",
-      "back": "777"
-    },
-    {
-      "suuid": "DQCFTo",
-      "category": "linux",
-      "front": "dfdf",
-      "back": "dfdf"
-    },
-    {
-      "suuid": "YPTT9I",
-      "category": "linux",
-      "front": "dfdf",
-      "back": "dfdf"
-    },
-    {
-      "suuid": "sKbDJN",
-      "category": "linux",
-      "front": "dfdf",
-      "back": "ddfdf"
-    },
-    {
-      "suuid": "5IyP71",
-      "category": "linux",
-      "front": "dfdfd",
-      "back": "dfdf"
-    },
-    {
-      "suuid": "8HSK8U",
-      "category": "linux",
-      "front": "dfdfd",
-      "back": "dfdf"
-    },
-    {
-      "suuid": "AwPkGx",
-      "category": "linux",
-      "front": "dfdfd",
-      "back": "dfdf"
     }
   ]
 }
