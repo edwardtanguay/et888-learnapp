@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { FaSave } from "react-icons/fa";
 import { MdCancel } from "react-icons/md";
-import { IFrontendFlashcard } from "../shared/interfaces";
+import { IFrontendFlashcard, convertFrontendFlashcardToFlaschard } from "../shared/interfaces";
 import { ChangeEvent, useContext } from "react";
 import { AppContext } from "../AppContext";
 
@@ -8,7 +9,7 @@ interface IProps {
 	frontendFlashcard: IFrontendFlashcard;
 }
 export const FlashcardTableEditRow = ({ frontendFlashcard }: IProps) => {
-	const { toggleRowEditing, frontendFlashcards, setFrontendFlashcards } =
+	const { toggleRowEditing, frontendFlashcards, setFrontendFlashcards, saveEditFlashcard } =
 		useContext(AppContext);
 
 	const handleChangeEditFlashcardField = (
@@ -30,6 +31,23 @@ export const FlashcardTableEditRow = ({ frontendFlashcard }: IProps) => {
 				break;
 		}
 		setFrontendFlashcards(structuredClone(frontendFlashcards));
+	};
+
+	const handleSaveEditFlashcard = (frontendFlashcard: IFrontendFlashcard) => {
+		(async () => {
+			try {
+				const flashcard = convertFrontendFlashcardToFlaschard(frontendFlashcard);
+				const response = await saveEditFlashcard(flashcard);
+				if (response.message === "ok") {
+					toggleRowEditing(frontendFlashcard);
+				}
+			} catch (e: any) {
+				console.log(`${e.message}`);
+				alert(
+					"We're sorry, your flashcard cannot be saved at this time. Try again later, or contact 2342-234-23343."
+				);
+			}
+		})();
 	};
 
 	return (
@@ -80,7 +98,7 @@ export const FlashcardTableEditRow = ({ frontendFlashcard }: IProps) => {
 			<td>
 				<div className="flex gap-1">
 					<FaSave
-						// onClick={handleSaveAddFlashcard}
+						onClick={() => handleSaveEditFlashcard(frontendFlashcard)}
 						className="cursor-pointer hover:text-green-900"
 					/>
 					<MdCancel

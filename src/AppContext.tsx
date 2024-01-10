@@ -17,6 +17,7 @@ interface IAppContext {
 	) => Promise<IPromiseResolution>;
 	deleteFlashcard: (flashcard: IFlashcard) => Promise<IPromiseResolution>;
 	toggleRowEditing: (frontendFlashcard: IFrontendFlashcard) => void;
+	saveEditFlashcard: (flashcard: IFlashcard) => Promise<IPromiseResolution>;
 }
 
 interface IAppProvider {
@@ -82,6 +83,39 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 		});
 	};
 
+	const saveEditFlashcard = async (flashcard: IFlashcard) => {
+		return new Promise<IPromiseResolution>((resolve, reject) => {
+			const headers = {
+				"Access-Control-Allow-Origin": "*",
+				"Content-Type": "application/json",
+			};
+			(async () => {
+				try {
+					const response = await axios.put(
+						`${backendUrl}/api/flashcards`,
+						flashcard,
+						{ headers }
+					);
+					if (response.status === 200) {
+						// const flashcard: IFlashcard = response.data;
+						// const frontendFlashcard =
+						// 	convertFlashcardToFrontendFlaschard(flashcard);
+						// TODO: save data from backend flashcard
+						resolve({ message: "ok" });
+					} else {
+						reject({
+							message: `ERROR: status code ${response.status}`,
+						});
+					}
+				} catch (e: any) {
+					reject({
+						message: `ERROR: ${e.message}`,
+					});
+				}
+			})();
+		});
+	};
+
 	const deleteFlashcard = (flashcard: IFlashcard) => {
 		return new Promise<IPromiseResolution>((resolve, reject) => {
 			(async () => {
@@ -123,7 +157,8 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 				setFrontendFlashcards,
 				saveAddFlashcard,
 				deleteFlashcard,
-				toggleRowEditing
+				toggleRowEditing,
+				saveEditFlashcard
 			}}
 		>
 			{children}
