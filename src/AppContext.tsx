@@ -12,7 +12,7 @@ interface IAppContext {
 	saveAddFlashcard: (
 		newFlashcard: INewFlashcard
 	) => Promise<IPromiseResolution>;
-	deleteFlashcard: (flashcard: IFlashcard) => void;
+	deleteFlashcard: (flashcard: IFlashcard) => Promise<IPromiseResolution>;
 }
 
 interface IAppProvider {
@@ -68,15 +68,30 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 	};
 
 	const deleteFlashcard = (flashcard: IFlashcard) => {
-		(async () => {
-			const response = await axios.delete(
-				`${backendUrl}/api/flashcards/${flashcard.suuid}`
-			);
-			if (response.status === 200) {
-				const _flashcards = flashcards.filter(m => m.suuid !== flashcard.suuid);
-				setFlashcards(_flashcards);
-			}
-		})();
+		return new Promise<IPromiseResolution>((resolve, reject) => {
+			(async () => {
+				try {
+					const response = await axios.delete(
+						`${backendUrl}/api/flashcards/${flashcard.suuid}`
+					);
+					if (response.status === 200) {
+						const _flashcards = flashcards.filter(
+							(m) => m.suuid !== flashcard.suuid
+						);
+						setFlashcards(_flashcards);
+						resolve({ message: "ok" });
+					} else {
+						reject({
+							message: `ERROR: status code ${response.status}`,
+						});
+					}
+				} catch (e: any) {
+					reject({
+						message: `ERROR: ${e.message + ' / ' + e.response.data}`,
+					});
+				}
+			})();
+		});
 	};
 
 	return (

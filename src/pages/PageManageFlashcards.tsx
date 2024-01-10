@@ -58,7 +58,14 @@ export const PageManageFlashcards = () => {
 	};
 
 	const handleDeleteFlashcard = (flashcard: IFlashcard) => {
-		deleteFlashcard(flashcard); 
+		(async () => {
+			try {
+				await deleteFlashcard(flashcard); 
+			} catch (e: any) {
+				console.log(`${e.message}`);
+				alert("We're sorry, your flashcard cannot be saved at this time. Try again later, or contact 2342-234-23343.")
+			}
+		})();
 	}
 
 	return (
