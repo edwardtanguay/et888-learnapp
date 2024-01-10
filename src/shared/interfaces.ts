@@ -16,6 +16,7 @@ export interface IFlashcard extends INewFlashcard {
 
 export interface IFrontendFlashcard extends IFlashcard {
 	userIsDeleting: boolean;
+	userIsEditing: boolean;
 }
 
 export interface IPatchFlashcard {
@@ -35,7 +36,8 @@ export interface IPromiseResolution {
 export const convertFlashcardToFrontendFlaschard = (flashcard: IFlashcard): IFrontendFlashcard => {
 	return {
 		...flashcard,
-		userIsDeleting: false
+		userIsDeleting: false,
+		userIsEditing: false
 	}
 }
 
