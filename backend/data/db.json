@@ -1,12 +1,6 @@
 {
   "flashcards": [
     {
-      "suuid": "svYRPc",
-      "category": "linux",
-      "front": "first",
-      "back": "first"
-    },
-    {
       "suuid": "82Js23",
       "category": "linux",
       "front": "how to find out your Linux shell",
@@ -53,12 +47,6 @@
       "category": "linux",
       "front": "sdfsdf",
       "back": "dfdfdfs"
-    },
-    {
-      "suuid": "dKTjii",
-      "category": "linux",
-      "front": "111",
-      "back": "1111"
     }
   ]
 }
