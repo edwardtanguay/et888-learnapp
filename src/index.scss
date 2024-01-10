@@ -31,6 +31,7 @@ table.dataTable {
 			border-bottom: 1px solid $border;
 		}
 	}
+
 	tbody {
 		tr {
 			td {
@@ -43,8 +44,13 @@ table.dataTable {
 					font-family: monospace;
 				}
 			}
+
 			&:nth-child(even) td {
 				background-color: darken($dataRowColor, 5%);
+			}
+
+			&.deleting td {
+				background-color: red;
 			}
 		}
 	}

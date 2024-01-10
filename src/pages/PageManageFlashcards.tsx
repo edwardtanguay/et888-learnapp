@@ -13,7 +13,8 @@ import {
 } from "../shared/interfaces";
 
 export const PageManageFlashcards = () => {
-	const { frontendFlashcards, saveAddFlashcard, deleteFlashcard } = useContext(AppContext);
+	const { frontendFlashcards, saveAddFlashcard, deleteFlashcard } =
+		useContext(AppContext);
 	const [isAddingFlashcard, setIsAddingFlashcard] = useState(false);
 	const [newFlashcard, setNewFlashcard] = useState<INewFlashcard>(
 		structuredClone(blankNewFlashcard)
@@ -53,7 +54,9 @@ export const PageManageFlashcards = () => {
 				}
 			} catch (e: any) {
 				console.log(`${e.message}`);
-				alert("We're sorry, your flashcard cannot be saved at this time. Try again later, or contact 2342-234-23343.")
+				alert(
+					"We're sorry, your flashcard cannot be saved at this time. Try again later, or contact 2342-234-23343."
+				);
 			}
 		})();
 	};
@@ -61,14 +64,17 @@ export const PageManageFlashcards = () => {
 	const handleDeleteFlashcard = (frontendFlashcard: IFrontendFlashcard) => {
 		(async () => {
 			try {
-				const flashcard = convertFrontendFlashcardToFlaschard(frontendFlashcard);
-				await deleteFlashcard(flashcard); 
+				const flashcard =
+					convertFrontendFlashcardToFlaschard(frontendFlashcard);
+				await deleteFlashcard(flashcard);
 			} catch (e: any) {
 				console.log(`${e.message}`);
-				alert("We're sorry, your flashcard cannot be saved at this time. Try again later, or contact 2342-234-23343.")
+				alert(
+					"We're sorry, your flashcard cannot be saved at this time. Try again later, or contact 2342-234-23343."
+				);
 			}
 		})();
-	}
+	};
 
 	return (
 		<>
@@ -152,7 +158,14 @@ export const PageManageFlashcards = () => {
 						)}
 						{frontendFlashcards.map((frontendFlashcard) => {
 							return (
-								<tr key={frontendFlashcard.suuid}>
+								<tr
+									className={
+										frontendFlashcard.userIsDeleting
+											? "deleting"
+											: ""
+									}
+									key={frontendFlashcard.suuid}
+								>
 									<td>{frontendFlashcard.suuid}</td>
 									<td>{frontendFlashcard.category}</td>
 									<td>{frontendFlashcard.front}</td>
@@ -160,7 +173,14 @@ export const PageManageFlashcards = () => {
 									<td>
 										<div className="flex gap-1">
 											<MdModeEditOutline className="cursor-pointer hover:text-green-900" />
-											<RiDeleteBin6Line onClick={() => handleDeleteFlashcard(frontendFlashcard)} className="cursor-pointer hover:text-red-900" />
+											<RiDeleteBin6Line
+												onClick={() =>
+													handleDeleteFlashcard(
+														frontendFlashcard
+													)
+												}
+												className="cursor-pointer hover:text-red-900"
+											/>
 										</div>
 									</td>
 								</tr>
