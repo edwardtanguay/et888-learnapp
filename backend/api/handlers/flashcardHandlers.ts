@@ -22,7 +22,7 @@ export const addFlashcard = async (newFlashcard: INewFlashcard) => {
 		suuid: getSuuid(),
 		...newFlashcard,
 	}
-	db.data.flashcards.push(flashcard);
+	db.data.flashcards.unshift(flashcard);
 	await db.write();
 	return flashcard;
 }

@@ -27,7 +27,9 @@ const backendUrl = "http://localhost:4206";
 export const AppContext = createContext<IAppContext>({} as IAppContext);
 
 export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
-	const [frontendFlashcards, setFrontendFlashcards] = useState<IFrontendFlashcard[]>([]);
+	const [frontendFlashcards, setFrontendFlashcards] = useState<
+		IFrontendFlashcard[]
+	>([]);
 
 	useEffect(() => {
 		(async () => {
@@ -35,7 +37,8 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 			const _flashcards = response.data;
 			const _frontendFlashcards = [];
 			for (const _flashcard of _flashcards) {
-				const _frontendFlashcard: IFrontendFlashcard = convertFlashcardToFrontendFlaschard(_flashcard);
+				const _frontendFlashcard: IFrontendFlashcard =
+					convertFlashcardToFrontendFlaschard(_flashcard);
 				_frontendFlashcards.push(_frontendFlashcard);
 			}
 			setFrontendFlashcards(_frontendFlashcards);
@@ -57,9 +60,12 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 					);
 					if (response.status === 201) {
 						const flashcard: IFlashcard = response.data;
-						const frontendFlashcard = convertFlashcardToFrontendFlaschard(flashcard);
-						frontendFlashcards.push(frontendFlashcard);
-						setFrontendFlashcards(structuredClone(frontendFlashcards));
+						const frontendFlashcard =
+							convertFlashcardToFrontendFlaschard(flashcard);
+						frontendFlashcards.unshift(frontendFlashcard);
+						setFrontendFlashcards(
+							structuredClone(frontendFlashcards)
+						);
 						resolve({ message: "ok" });
 					} else {
 						reject({
@@ -95,7 +101,9 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 					}
 				} catch (e: any) {
 					reject({
-						message: `ERROR: ${e.message + ' / ' + e.response.data}`,
+						message: `ERROR: ${
+							e.message + " / " + e.response.data
+						}`,
 					});
 				}
 			})();

@@ -1,6 +1,12 @@
 {
   "flashcards": [
     {
+      "suuid": "svYRPc",
+      "category": "linux",
+      "front": "first",
+      "back": "first"
+    },
+    {
       "suuid": "82Js23",
       "category": "linux",
       "front": "how to find out your Linux shell",
@@ -29,6 +35,30 @@
       "category": "linux",
       "front": "create a new file",
       "back": "touch index.html"
+    },
+    {
+      "suuid": "yTbfmc",
+      "category": "linux",
+      "front": "asdfsdf",
+      "back": "dfddff"
+    },
+    {
+      "suuid": "tmUDqy",
+      "category": "linux",
+      "front": "",
+      "back": "sdfsdfsdf"
+    },
+    {
+      "suuid": "3Uy1MD",
+      "category": "linux",
+      "front": "sdfsdf",
+      "back": "dfdfdfs"
+    },
+    {
+      "suuid": "dKTjii",
+      "category": "linux",
+      "front": "111",
+      "back": "1111"
     }
   ]
 }
