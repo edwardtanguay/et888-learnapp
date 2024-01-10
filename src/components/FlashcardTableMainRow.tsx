@@ -1,7 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { MdCancel, MdModeEditOutline } from "react-icons/md";
 import { RiDeleteBin6Line } from "react-icons/ri";
-import { IFrontendFlashcard, convertFrontendFlashcardToFlaschard } from "../shared/interfaces";
+import {
+	IFrontendFlashcard,
+	convertFrontendFlashcardToFlaschard,
+} from "../shared/interfaces";
 import { useContext } from "react";
 import { AppContext } from "../AppContext";
 
@@ -10,12 +13,9 @@ interface IProps {
 }
 
 export const FlashcardTableMainRow = ({ frontendFlashcard }: IProps) => {
-	const {
-		deleteFlashcard,
-		setFrontendFlashcards,
-		frontendFlashcards
-	} = useContext(AppContext);
-	
+	const { deleteFlashcard, setFrontendFlashcards, frontendFlashcards } =
+		useContext(AppContext);
+
 	const handleDeleteFlashcard = (frontendFlashcard: IFrontendFlashcard) => {
 		(async () => {
 			try {
@@ -30,11 +30,16 @@ export const FlashcardTableMainRow = ({ frontendFlashcard }: IProps) => {
 			}
 		})();
 	};
-	
+
 	const handleSetFlashcardToDeleting = (
 		frontendFlashcard: IFrontendFlashcard
 	) => {
 		frontendFlashcard.userIsDeleting = !frontendFlashcard.userIsDeleting;
+		setFrontendFlashcards(structuredClone(frontendFlashcards));
+	};
+
+	const setFlashcardToEditing = (frontendFlashcard: IFrontendFlashcard) => {
+		frontendFlashcard.userIsEditing = !frontendFlashcard.userIsEditing;
 		setFrontendFlashcards(structuredClone(frontendFlashcards));
 	};
 
@@ -65,7 +70,12 @@ export const FlashcardTableMainRow = ({ frontendFlashcard }: IProps) => {
 					</div>
 				) : (
 					<div className="flex gap-1">
-						<MdModeEditOutline className="cursor-pointer hover:text-green-900" />
+						<MdModeEditOutline
+							onClick={() =>
+								setFlashcardToEditing(frontendFlashcard)
+							}
+							className="cursor-pointer hover:text-green-900"
+						/>
 						<RiDeleteBin6Line
 							onClick={() =>
 								handleSetFlashcardToDeleting(frontendFlashcard)

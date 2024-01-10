@@ -7,9 +7,7 @@ import { FlashcardTableMainRow } from "../components/FlashcardTableMainRow";
 import { FlashcardTableEditRow } from "../components/FlashcardTableEditRow";
 
 export const PageManageFlashcards = () => {
-	const {
-		frontendFlashcards,
-	} = useContext(AppContext);
+	const { frontendFlashcards } = useContext(AppContext);
 	const [isAddingFlashcard, setIsAddingFlashcard] = useState(false);
 
 	return (
@@ -23,12 +21,27 @@ export const PageManageFlashcards = () => {
 						isAddingFlashcard={isAddingFlashcard}
 					/>
 					<tbody>
-						{isAddingFlashcard && <FlashcardTableAddRow setIsAddingFlashcard={setIsAddingFlashcard} />}
+						{isAddingFlashcard && (
+							<FlashcardTableAddRow
+								setIsAddingFlashcard={setIsAddingFlashcard}
+							/>
+						)}
 						{frontendFlashcards.map((frontendFlashcard) => {
 							return (
 								<>
-								<FlashcardTableMainRow frontendFlashcard={frontendFlashcard}/>
-								<FlashcardTableEditRow frontendFlashcard={frontendFlashcard}/>
+									{frontendFlashcard.userIsEditing ? (
+										<FlashcardTableEditRow
+											frontendFlashcard={
+												frontendFlashcard
+											}
+										/>
+									) : (
+										<FlashcardTableMainRow
+											frontendFlashcard={
+												frontendFlashcard
+											}
+										/>
+									)}
 								</>
 							);
 						})}

@@ -8,9 +8,9 @@ export const FlashcardTableEditRow = ({ frontendFlashcard }: IProps) => {
 	return (
 	<tr className="editing">
 			<td>{frontendFlashcard.suuid}</td>
-		<td><input type="text" /></td>
-		<td><input type="text" /></td>
-		<td><input type="text" /></td>
+		<td><input className="w-full" type="text" /></td>
+		<td><input className="w-full" type="text" /></td>
+		<td><input className="w-full" type="text" /></td>
 		<td>edit</td>
 	</tr>
 	)
