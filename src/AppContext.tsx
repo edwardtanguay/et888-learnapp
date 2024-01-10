@@ -12,6 +12,7 @@ interface IAppContext {
 	saveAddFlashcard: (
 		newFlashcard: INewFlashcard
 	) => Promise<IPromiseResolution>;
+	deleteFlashcard: (flashcard: IFlashcard) => void;
 }
 
 interface IAppProvider {
@@ -66,11 +67,21 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 		});
 	};
 
+	const deleteFlashcard = (flashcard: IFlashcard) => {
+		(async () => {
+			const response = await axios.delete(
+				`${backendUrl}/api/flashcards/${flashcard.suuid}`
+			);
+			console.log(response.status);
+		})();
+	};
+
 	return (
 		<AppContext.Provider
 			value={{
 				flashcards,
 				saveAddFlashcard,
+				deleteFlashcard,
 			}}
 		>
 			{children}

@@ -6,12 +6,13 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { SiOneplus } from "react-icons/si";
 import { FaSave } from "react-icons/fa";
 import {
+	IFlashcard,
 	INewFlashcard,
 	blankNewFlashcard,
 } from "../shared/interfaces";
 
 export const PageManageFlashcards = () => {
-	const { flashcards, saveAddFlashcard } = useContext(AppContext);
+	const { flashcards, saveAddFlashcard, deleteFlashcard } = useContext(AppContext);
 	const [isAddingFlashcard, setIsAddingFlashcard] = useState(false);
 	const [newFlashcard, setNewFlashcard] = useState<INewFlashcard>(
 		structuredClone(blankNewFlashcard)
@@ -55,6 +56,10 @@ export const PageManageFlashcards = () => {
 			}
 		})();
 	};
+
+	const handleDeleteFlashcard = (flashcard: IFlashcard) => {
+		deleteFlashcard(flashcard); 
+	}
 
 	return (
 		<>
@@ -146,7 +151,7 @@ export const PageManageFlashcards = () => {
 									<td>
 										<div className="flex gap-1">
 											<MdModeEditOutline className="cursor-pointer hover:text-green-900" />
-											<RiDeleteBin6Line className="cursor-pointer hover:text-red-900" />
+											<RiDeleteBin6Line onClick={() => handleDeleteFlashcard(flashcard)} className="cursor-pointer hover:text-red-900" />
 										</div>
 									</td>
 								</tr>
