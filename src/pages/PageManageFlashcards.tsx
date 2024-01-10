@@ -6,13 +6,14 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { SiOneplus } from "react-icons/si";
 import { FaSave } from "react-icons/fa";
 import {
-	IFlashcard,
+	IFrontendFlashcard,
 	INewFlashcard,
 	blankNewFlashcard,
+	convertFrontendFlashcardToFlaschard,
 } from "../shared/interfaces";
 
 export const PageManageFlashcards = () => {
-	const { flashcards, saveAddFlashcard, deleteFlashcard } = useContext(AppContext);
+	const { frontendFlashcards, saveAddFlashcard, deleteFlashcard } = useContext(AppContext);
 	const [isAddingFlashcard, setIsAddingFlashcard] = useState(false);
 	const [newFlashcard, setNewFlashcard] = useState<INewFlashcard>(
 		structuredClone(blankNewFlashcard)
@@ -57,9 +58,10 @@ export const PageManageFlashcards = () => {
 		})();
 	};
 
-	const handleDeleteFlashcard = (flashcard: IFlashcard) => {
+	const handleDeleteFlashcard = (frontendFlashcard: IFrontendFlashcard) => {
 		(async () => {
 			try {
+				const flashcard = convertFrontendFlashcardToFlaschard(frontendFlashcard);
 				await deleteFlashcard(flashcard); 
 			} catch (e: any) {
 				console.log(`${e.message}`);
@@ -70,7 +72,7 @@ export const PageManageFlashcards = () => {
 
 	return (
 		<>
-			<p>There are {flashcards.length} flashcards:</p>
+			<p>There are {frontendFlashcards.length} flashcards:</p>
 
 			<form>
 				<table className="dataTable mt-4 w-[60rem]">
@@ -148,17 +150,17 @@ export const PageManageFlashcards = () => {
 								</td>
 							</tr>
 						)}
-						{flashcards.map((flashcard) => {
+						{frontendFlashcards.map((frontendFlashcard) => {
 							return (
-								<tr key={flashcard.suuid}>
-									<td>{flashcard.suuid}</td>
-									<td>{flashcard.category}</td>
-									<td>{flashcard.front}</td>
-									<td>{flashcard.back}</td>
+								<tr key={frontendFlashcard.suuid}>
+									<td>{frontendFlashcard.suuid}</td>
+									<td>{frontendFlashcard.category}</td>
+									<td>{frontendFlashcard.front}</td>
+									<td>{frontendFlashcard.back}</td>
 									<td>
 										<div className="flex gap-1">
 											<MdModeEditOutline className="cursor-pointer hover:text-green-900" />
-											<RiDeleteBin6Line onClick={() => handleDeleteFlashcard(flashcard)} className="cursor-pointer hover:text-red-900" />
+											<RiDeleteBin6Line onClick={() => handleDeleteFlashcard(frontendFlashcard)} className="cursor-pointer hover:text-red-900" />
 										</div>
 									</td>
 								</tr>

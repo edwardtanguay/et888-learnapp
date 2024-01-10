@@ -2,13 +2,15 @@
 import { createContext, useEffect, useState } from "react";
 import {
 	IFlashcard,
+	IFrontendFlashcard,
 	INewFlashcard,
 	IPromiseResolution,
+	convertFlashcardToFrontendFlaschard,
 } from "./shared/interfaces";
 import axios from "axios";
 
 interface IAppContext {
-	flashcards: IFlashcard[];
+	frontendFlashcards: IFrontendFlashcard[];
 	saveAddFlashcard: (
 		newFlashcard: INewFlashcard
 	) => Promise<IPromiseResolution>;
@@ -24,13 +26,18 @@ const backendUrl = "http://localhost:4206";
 export const AppContext = createContext<IAppContext>({} as IAppContext);
 
 export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
-	const [flashcards, setFlashcards] = useState<IFlashcard[]>([]);
+	const [frontendFlashcards, setFrontendFlashcards] = useState<IFrontendFlashcard[]>([]);
 
 	useEffect(() => {
 		(async () => {
 			const response = await axios.get(`${backendUrl}/api/flashcards`);
 			const _flashcards = response.data;
-			setFlashcards(_flashcards);
+			const _frontendFlashcards = [];
+			for (const _flashcard of _flashcards) {
+				const _frontendFlashcard: IFrontendFlashcard = convertFlashcardToFrontendFlaschard(_flashcard);
+				_frontendFlashcards.push(_frontendFlashcard);
+			}
+			setFrontendFlashcards(_frontendFlashcards);
 		})();
 	}, []);
 
@@ -49,9 +56,9 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 					);
 					if (response.status === 201) {
 						const flashcard: IFlashcard = response.data;
-						flashcards.push(flashcard);
-						const _flashcards = structuredClone(flashcards);
-						setFlashcards(_flashcards);
+						const frontendFlashcard = convertFlashcardToFrontendFlaschard(flashcard);
+						frontendFlashcards.push(frontendFlashcard);
+						setFrontendFlashcards(structuredClone(frontendFlashcards));
 						resolve({ message: "ok" });
 					} else {
 						reject({
@@ -75,10 +82,10 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 						`${backendUrl}/api/flashcards/${flashcard.suuid}`
 					);
 					if (response.status === 200) {
-						const _flashcards = flashcards.filter(
+						const _frontendFlashcards = frontendFlashcards.filter(
 							(m) => m.suuid !== flashcard.suuid
 						);
-						setFlashcards(_flashcards);
+						setFrontendFlashcards(_frontendFlashcards);
 						resolve({ message: "ok" });
 					} else {
 						reject({
@@ -97,7 +104,7 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 	return (
 		<AppContext.Provider
 			value={{
-				flashcards,
+				frontendFlashcards,
 				saveAddFlashcard,
 				deleteFlashcard,
 			}}

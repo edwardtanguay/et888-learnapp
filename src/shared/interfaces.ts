@@ -14,6 +14,10 @@ export interface IFlashcard extends INewFlashcard {
 	suuid: string;
 }
 
+export interface IFrontendFlashcard extends IFlashcard {
+	userIsDeleting: boolean;
+}
+
 export interface IPatchFlashcard {
 	category?: string;
 	front?: string
@@ -26,4 +30,20 @@ export interface IDatabase {
 
 export interface IPromiseResolution {
 	message: string;
+}
+
+export const convertFlashcardToFrontendFlaschard = (flashcard: IFlashcard): IFrontendFlashcard => {
+	return {
+		...flashcard,
+		userIsDeleting: false
+	}
+}
+
+export const convertFrontendFlashcardToFlaschard = (frontendFlashcard: IFrontendFlashcard): IFlashcard => {
+    return {
+        suuid: frontendFlashcard.suuid,
+        category: frontendFlashcard.category,
+        front: frontendFlashcard.front,
+        back: frontendFlashcard.back
+    }
 }
