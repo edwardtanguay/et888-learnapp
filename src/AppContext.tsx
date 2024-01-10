@@ -11,6 +11,7 @@ import axios from "axios";
 
 interface IAppContext {
 	frontendFlashcards: IFrontendFlashcard[];
+	setFrontendFlashcards: (frontendFlashcards: IFrontendFlashcard[]) => void;
 	saveAddFlashcard: (
 		newFlashcard: INewFlashcard
 	) => Promise<IPromiseResolution>;
@@ -105,6 +106,7 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 		<AppContext.Provider
 			value={{
 				frontendFlashcards,
+				setFrontendFlashcards,
 				saveAddFlashcard,
 				deleteFlashcard,
 			}}

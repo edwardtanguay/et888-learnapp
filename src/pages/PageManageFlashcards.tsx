@@ -13,7 +13,7 @@ import {
 } from "../shared/interfaces";
 
 export const PageManageFlashcards = () => {
-	const { frontendFlashcards, saveAddFlashcard, deleteFlashcard } =
+	const { frontendFlashcards, setFrontendFlashcards, saveAddFlashcard, deleteFlashcard } =
 		useContext(AppContext);
 	const [isAddingFlashcard, setIsAddingFlashcard] = useState(false);
 	const [newFlashcard, setNewFlashcard] = useState<INewFlashcard>(
@@ -60,21 +60,27 @@ export const PageManageFlashcards = () => {
 			}
 		})();
 	};
-
-	const handleDeleteFlashcard = (frontendFlashcard: IFrontendFlashcard) => {
-		(async () => {
-			try {
-				const flashcard =
-					convertFrontendFlashcardToFlaschard(frontendFlashcard);
-				await deleteFlashcard(flashcard);
-			} catch (e: any) {
-				console.log(`${e.message}`);
-				alert(
-					"We're sorry, your flashcard cannot be saved at this time. Try again later, or contact 2342-234-23343."
-				);
-			}
-		})();
+	const handleSetFlashcardToDeleting = (
+		frontendFlashcard: IFrontendFlashcard
+	) => {
+		frontendFlashcard.userIsDeleting = !frontendFlashcard.userIsDeleting;
+		setFrontendFlashcards(structuredClone(frontendFlashcards));
 	};
+
+	// const handleDeleteFlashcard = (frontendFlashcard: IFrontendFlashcard) => {
+	// 	(async () => {
+	// 		try {
+	// 			const flashcard =
+	// 				convertFrontendFlashcardToFlaschard(frontendFlashcard);
+	// 			await deleteFlashcard(flashcard);
+	// 		} catch (e: any) {
+	// 			console.log(`${e.message}`);
+	// 			alert(
+	// 				"We're sorry, your flashcard cannot be saved at this time. Try again later, or contact 2342-234-23343."
+	// 			);
+	// 		}
+	// 	})();
+	// };
 
 	return (
 		<>
@@ -175,7 +181,7 @@ export const PageManageFlashcards = () => {
 											<MdModeEditOutline className="cursor-pointer hover:text-green-900" />
 											<RiDeleteBin6Line
 												onClick={() =>
-													handleDeleteFlashcard(
+													handleSetFlashcardToDeleting(
 														frontendFlashcard
 													)
 												}
