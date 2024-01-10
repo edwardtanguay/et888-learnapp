@@ -52,6 +52,10 @@ table.dataTable {
 			&.deleting td {
 				background-color: red;
 			}
+
+			&.editing td {
+				background-color: green;
+			}
 		}
 	}
 }
