@@ -13,7 +13,7 @@ interface IProps {
 }
 
 export const FlashcardTableMainRow = ({ frontendFlashcard }: IProps) => {
-	const { deleteFlashcard, setFrontendFlashcards, frontendFlashcards } =
+	const { deleteFlashcard, setFrontendFlashcards, frontendFlashcards, toggleRowEditing } =
 		useContext(AppContext);
 
 	const handleDeleteFlashcard = (frontendFlashcard: IFrontendFlashcard) => {
@@ -35,11 +35,6 @@ export const FlashcardTableMainRow = ({ frontendFlashcard }: IProps) => {
 		frontendFlashcard: IFrontendFlashcard
 	) => {
 		frontendFlashcard.userIsDeleting = !frontendFlashcard.userIsDeleting;
-		setFrontendFlashcards(structuredClone(frontendFlashcards));
-	};
-
-	const setFlashcardToEditing = (frontendFlashcard: IFrontendFlashcard) => {
-		frontendFlashcard.userIsEditing = !frontendFlashcard.userIsEditing;
 		setFrontendFlashcards(structuredClone(frontendFlashcards));
 	};
 
@@ -72,7 +67,7 @@ export const FlashcardTableMainRow = ({ frontendFlashcard }: IProps) => {
 					<div className="flex gap-1">
 						<MdModeEditOutline
 							onClick={() =>
-								setFlashcardToEditing(frontendFlashcard)
+								toggleRowEditing(frontendFlashcard)
 							}
 							className="cursor-pointer hover:text-green-900"
 						/>

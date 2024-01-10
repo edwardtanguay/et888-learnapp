@@ -16,6 +16,7 @@ interface IAppContext {
 		newFlashcard: INewFlashcard
 	) => Promise<IPromiseResolution>;
 	deleteFlashcard: (flashcard: IFlashcard) => Promise<IPromiseResolution>;
+	toggleRowEditing: (frontendFlashcard: IFrontendFlashcard) => void;
 }
 
 interface IAppProvider {
@@ -109,6 +110,11 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 			})();
 		});
 	};
+	
+	const toggleRowEditing = (frontendFlashcard: IFrontendFlashcard) => {
+		frontendFlashcard.userIsEditing = !frontendFlashcard.userIsEditing;
+		setFrontendFlashcards(structuredClone(frontendFlashcards));
+	};
 
 	return (
 		<AppContext.Provider
@@ -117,6 +123,7 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 				setFrontendFlashcards,
 				saveAddFlashcard,
 				deleteFlashcard,
+				toggleRowEditing
 			}}
 		>
 			{children}

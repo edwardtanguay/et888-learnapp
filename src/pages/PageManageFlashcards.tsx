@@ -5,6 +5,7 @@ import { FlashcardTableHead } from "../components/FlashcardTableHead";
 import { FlashcardTableAddRow } from "../components/FlashcardTableAddRow";
 import { FlashcardTableMainRow } from "../components/FlashcardTableMainRow";
 import { FlashcardTableEditRow } from "../components/FlashcardTableEditRow";
+import React from "react";
 
 export const PageManageFlashcards = () => {
 	const { frontendFlashcards } = useContext(AppContext);
@@ -28,7 +29,7 @@ export const PageManageFlashcards = () => {
 						)}
 						{frontendFlashcards.map((frontendFlashcard) => {
 							return (
-								<>
+								<React.Fragment key={frontendFlashcard.suuid}>
 									{frontendFlashcard.userIsEditing ? (
 										<FlashcardTableEditRow
 											frontendFlashcard={
@@ -42,7 +43,7 @@ export const PageManageFlashcards = () => {
 											}
 										/>
 									)}
-								</>
+								</React.Fragment>
 							);
 						})}
 					</tbody>
