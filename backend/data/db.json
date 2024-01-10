@@ -29,12 +29,6 @@
       "category": "linux",
       "front": "create a new file",
       "back": "touch index.html"
-    },
-    {
-      "suuid": "U3zFC7",
-      "category": "linux",
-      "front": "",
-      "back": "dfdf"
     }
   ]
 }
