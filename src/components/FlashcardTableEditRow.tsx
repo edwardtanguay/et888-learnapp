@@ -1,26 +1,81 @@
 import { FaSave } from "react-icons/fa";
 import { MdCancel } from "react-icons/md";
 import { IFrontendFlashcard } from "../shared/interfaces";
-import { useContext } from "react";
+import { ChangeEvent, useContext } from "react";
 import { AppContext } from "../AppContext";
 
 interface IProps {
 	frontendFlashcard: IFrontendFlashcard;
 }
 export const FlashcardTableEditRow = ({ frontendFlashcard }: IProps) => {
-	const { toggleRowEditing } = useContext(AppContext);
+	const { toggleRowEditing, frontendFlashcards, setFrontendFlashcards } =
+		useContext(AppContext);
+
+	const handleChangeEditFlashcardField = (
+		e: ChangeEvent<HTMLInputElement>,
+		field: string,
+		frontendFlashcard: IFrontendFlashcard
+	) => {
+		const value = e.target.value;
+		console.log(value);
+		switch (field) {
+			case "category":
+				frontendFlashcard.category = value;
+				break;
+			case "front":
+				frontendFlashcard.front = value;
+				break;
+			case "back":
+				frontendFlashcard.back = value;
+				break;
+		}
+		setFrontendFlashcards(structuredClone(frontendFlashcards));
+	};
 
 	return (
 		<tr className="editing">
 			<td>{frontendFlashcard.suuid}</td>
 			<td>
-				<input value={frontendFlashcard.category} className="w-full" type="text" />
+				<input
+					onChange={(e) =>
+						handleChangeEditFlashcardField(
+							e,
+							"category",
+							frontendFlashcard
+						)
+					}
+					value={frontendFlashcard.category}
+					className="w-full"
+					type="text"
+				/>
 			</td>
 			<td>
-				<input value={frontendFlashcard.front} className="w-full" type="text" />
+				<input
+					onChange={(e) =>
+						handleChangeEditFlashcardField(
+							e,
+							"front",
+							frontendFlashcard
+						)
+					}
+					value={frontendFlashcard.front}
+					className="w-full"
+					type="text"
+				/>
 			</td>
 			<td>
-				<input value={frontendFlashcard.back} className="w-full" type="text" />
+				<input
+					onChange={(e) =>
+						handleChangeEditFlashcardField(
+							e,
+							"back",
+							frontendFlashcard
+						)
+					}
+					value={frontendFlashcard.back}
+					className="w-full"
+					type="text"
+				/>
 			</td>
 			<td>
 				<div className="flex gap-1">
