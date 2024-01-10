@@ -72,7 +72,10 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 			const response = await axios.delete(
 				`${backendUrl}/api/flashcards/${flashcard.suuid}`
 			);
-			console.log(response.status);
+			if (response.status === 200) {
+				const _flashcards = flashcards.filter(m => m.suuid !== flashcard.suuid);
+				setFlashcards(_flashcards);
+			}
 		})();
 	};
 
