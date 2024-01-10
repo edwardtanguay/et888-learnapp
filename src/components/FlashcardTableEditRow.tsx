@@ -14,23 +14,25 @@ export const FlashcardTableEditRow = ({ frontendFlashcard }: IProps) => {
 		<tr className="editing">
 			<td>{frontendFlashcard.suuid}</td>
 			<td>
-				<input className="w-full" type="text" />
+				<input value={frontendFlashcard.category} className="w-full" type="text" />
 			</td>
 			<td>
-				<input className="w-full" type="text" />
+				<input value={frontendFlashcard.front} className="w-full" type="text" />
 			</td>
 			<td>
-				<input className="w-full" type="text" />
+				<input value={frontendFlashcard.back} className="w-full" type="text" />
 			</td>
 			<td>
-				<FaSave
-					// onClick={handleSaveAddFlashcard}
-					className="cursor-pointer hover:text-green-900"
-				/>
-				<MdCancel
-					onClick={() => toggleRowEditing(frontendFlashcard)}
-					className="cursor-pointer hover:text-red-900"
-				/>
+				<div className="flex gap-1">
+					<FaSave
+						// onClick={handleSaveAddFlashcard}
+						className="cursor-pointer hover:text-green-900"
+					/>
+					<MdCancel
+						onClick={() => toggleRowEditing(frontendFlashcard)}
+						className="cursor-pointer hover:text-red-900"
+					/>
+				</div>
 			</td>
 		</tr>
 	);
