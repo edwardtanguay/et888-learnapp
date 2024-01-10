@@ -1,6 +1,12 @@
 {
   "flashcards": [
     {
+      "suuid": "dyoeeC",
+      "category": "linux",
+      "front": "dfdf",
+      "back": "dfdff"
+    },
+    {
       "suuid": "82Js23",
       "category": "linux",
       "front": "how to find out your Linux shell",
