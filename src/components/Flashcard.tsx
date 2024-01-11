@@ -1,14 +1,20 @@
-import { IFlashcard } from "../shared/interfaces"
+import { ITestingFlashcard } from "../shared/interfaces";
 
 interface IProps {
-	flashcard: IFlashcard;
+	testingFlashcard: ITestingFlashcard;
 }
 
-export const Flashcard = ({ flashcard }: IProps) => {
+export const Flashcard = ({ testingFlashcard }: IProps) => {
 	return (
 		<div className="mb-4 w-[40rem]">
-			<div className="bg-slate-500 p-4 rounded-t-lg">{flashcard.front}</div>
-			<div className="bg-slate-300 p-4 rounded-b-lg">{flashcard.back}</div>
+			<div className="bg-slate-500 p-4 rounded-t-lg">
+				{testingFlashcard.front}
+			</div>
+			{testingFlashcard.backIsShowing && (
+				<div className="bg-slate-300 p-4 rounded-b-lg">
+					{testingFlashcard.back}
+				</div>
+			)}
 		</div>
-	)
-}
+	);
+};

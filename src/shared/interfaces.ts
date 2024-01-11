@@ -4,6 +4,7 @@ export interface INewFlashcard {
 	back: string;
 }
 
+
 export const blankNewFlashcard: INewFlashcard = {
 	category: 'linux',
 	front: '',
@@ -12,6 +13,10 @@ export const blankNewFlashcard: INewFlashcard = {
 
 export interface IFlashcard extends INewFlashcard {
 	suuid: string;
+}
+
+export interface ITestingFlashcard extends IFlashcard {
+	backIsShowing: boolean;
 }
 
 export interface IFrontendFlashcard extends IFlashcard {
@@ -51,3 +56,10 @@ export const convertFrontendFlashcardToFlaschard = (frontendFlashcard: IFrontend
 }
 
 export type ISiteEnvironment = "development" | "production";
+
+export const convertFlashcardToTestingFlaschard = (flashcard: IFlashcard): ITestingFlashcard => {
+	return {
+		...flashcard,
+		backIsShowing: false
+	}
+}
