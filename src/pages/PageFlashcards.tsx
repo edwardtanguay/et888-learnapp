@@ -17,7 +17,7 @@ export const PageFlashcards = () => {
 			<p>There are {testingFlashcards.length} flashcards:</p>
 			<div className="mt-4">
 				{testingFlashcards.map((testingFlashcard) => {
-					return <Flashcard testingFlashcard={testingFlashcard} />;
+					return <Flashcard testingFlashcard={testingFlashcard} key={testingFlashcard.suuid} setTestingFlashcards={setTestingFlashcards} testingFlashcards={testingFlashcards} />;
 				})}
 			</div>
 		</>

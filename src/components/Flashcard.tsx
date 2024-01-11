@@ -2,12 +2,26 @@ import { ITestingFlashcard } from "../shared/interfaces";
 
 interface IProps {
 	testingFlashcard: ITestingFlashcard;
+	setTestingFlashcards: (testingFlashcards: ITestingFlashcard[]) => void;
+	testingFlashcards: ITestingFlashcard[];
 }
 
-export const Flashcard = ({ testingFlashcard }: IProps) => {
+export const Flashcard = ({
+	testingFlashcard,
+	setTestingFlashcards,
+	testingFlashcards,
+}: IProps) => {
+	const handleToggleFlashcard = (testingFlashcard: ITestingFlashcard) => {
+		testingFlashcard.backIsShowing = !testingFlashcard.backIsShowing;
+		setTestingFlashcards(structuredClone(testingFlashcards));
+	};
+
 	return (
 		<div className="mb-4 w-[40rem]">
-			<div className="bg-slate-500 p-4 rounded-t-lg">
+			<div
+				onClick={() => handleToggleFlashcard(testingFlashcard)}
+				className="bg-slate-500 p-4 rounded-t-lg cursor-pointer"
+			>
 				{testingFlashcard.front}
 			</div>
 			{testingFlashcard.backIsShowing && (
