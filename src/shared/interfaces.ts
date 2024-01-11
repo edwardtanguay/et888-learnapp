@@ -49,3 +49,5 @@ export const convertFrontendFlashcardToFlaschard = (frontendFlashcard: IFrontend
         back: frontendFlashcard.back
     }
 }
+
+export type ISiteEnvironment = "development" | "production";
