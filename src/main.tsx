@@ -12,6 +12,7 @@ import { Page404 } from "./pages/Page404.tsx";
 import { AppProvider } from "./AppContext.tsx";
 import { PageManageFlashcards } from "./pages/PageManageFlashcards.tsx";
 import { ISiteEnvironment } from "./shared/interfaces.ts";
+import { PageFlashcards } from "./pages/PageFlashcards.tsx";
 
 const siteEnvironment: ISiteEnvironment = import.meta.env.VITE_ENV;
 
@@ -23,6 +24,10 @@ let children = [
 	{
 		path: "manage-flashcards",
 		element: <PageManageFlashcards />,
+	},
+	{
+		path: "flashcards",
+		element: <PageFlashcards />,
 	},
 	{
 		path: "about",

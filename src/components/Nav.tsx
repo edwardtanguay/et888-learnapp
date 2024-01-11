@@ -19,6 +19,9 @@ export const Nav = () => {
 					</li>
 				)}
 				<li>
+					<NavLink to="/flashcards">Flashcards</NavLink>
+				</li>
+				<li>
 					<NavLink to="/about">About</NavLink>
 				</li>
 			</ul>
