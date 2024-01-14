@@ -1,5 +1,5 @@
 import express from 'express';
-import { flashcardRouter } from './routers/flashcardRouters';
+import { flashcardRouter } from './routers/flashcardRouter';
 import cors from 'cors';
 
 export const app = express();
