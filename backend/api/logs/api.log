@@ -3,3 +3,4 @@
 {"level":"warn","message":"user tried to delete following suuid: nnnnnn","timestamp":"2024-01-15T12:43:19.887Z"}
 {"level":"error","message":"ERROR: database does not exist","timestamp":"2024-01-15T12:47:18.012Z"}
 {"level":"error","message":"ERROR: database does not exist","timestamp":"2024-01-15T12:50:49.785Z"}
+{"level":"error","message":"ERROR: database does not exist","timestamp":"2024-01-15T12:58:05.050Z"}
