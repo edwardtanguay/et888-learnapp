@@ -4,8 +4,11 @@ import { IFlashcard, INewFlashcard, IPatchFlashcard } from '../../../src/shared/
 import { flashcardSuuidValidate } from '../middleware/flashcardSuuidValidate';
 import { flashcardPostCleanAndValidate } from '../middleware/flashcardPostCleanAndValidate ';
 import { logger } from '../logger';
+import { flashcardInfoRouter } from './flashcardInfoRouter';
 
 export const flashcardRouter = Router();
+
+flashcardRouter.use('/info',flashcardInfoRouter);
 
 flashcardRouter.get('/', (_req, res) => {
 	const flashcards = flashcardHandlers.getAllFlashcards();
