@@ -1,11 +1,13 @@
 import express from 'express';
+import { suuidIsValid } from '../handlers/dbtools';
 
 export const flashcardSuuidValidate = (req: express.Request, res: express.Response, next: express.NextFunction) => {
 	const errors: string[] = [];
 
 	const suuid = req.params.suuid;
-	if (suuid.length !== 6) {
-		errors.push('suuid must be 6 characters');
+
+	if (!suuidIsValid(suuid)) {
+		errors.push('suuid must be exactly 6 characters and contain only upper and lowercase letter or numbers, special characters are not allowed');
 	}
 
 	if (errors.length > 0) {
