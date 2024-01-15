@@ -1,67 +1,68 @@
 {
-  "flashcards": [
-      "suuid": "xrMlOa",
-      "category": "linux",
-      "front": "sdfsdf",
-      "back": "pwd"
-    },
-    {
-      "suuid": "y83bPk",
-      "category": "linux",
-      "front": "how to find directory",
-      "back": "pwd"
-    },
-    {
-      "suuid": "xeKXzj",
-      "category": "linux",
-      "vorne": "how to find directory",
-      "back": "pwd"
-    },
-    {
-      "suuid": "tw59Hs",
-      "category": "linux",
-      "back": "pwd"
-    },
-    {
-      "suuid": "75sYYm",
-      "category": "linux",
-      "back": "pwd"
-    },
-    {
-      "suuid": "2Rz81V",
-      "category": "linux",
-      "front": "find out the current directory",
-      "back": "pwd"
-    },
-    {
-      "suuid": "82Js23",
-      "category": "linux",
-      "front": "how to find out your Linux shell",
-      "back": "echo $0"
-    },
-    {
-      "suuid": "2Jjq4a",
-      "category": "git",
-      "front": "get back file from staging area to working directory, i.e. unstage a file",
-      "back": "git reset [file]"
-    },
-    {
-      "suuid": "891As1",
-      "category": "git",
-      "front": "show commit history with hash, title, author",
-      "back": "git log --pretty=format:\"%h - %s - %an\" "
-    },
-    {
-      "suuid": "3bCd45",
-      "category": "linux",
-      "front": "navigate to the home directory",
-      "back": "cd ~"
-    },
-    {
-      "suuid": "7iJk89",
-      "category": "linux",
-      "front": "create a new file",
-      "back": "touch index.html"
-    }
-  ]
+	"flashcards": [
+		{
+			"suuid": "xrMlOa",
+			"category": "linux",
+			"front": "sdfsdf",
+			"back": "pwd"
+		},
+		{
+			"suuid": "y83bPk",
+			"category": "linux",
+			"front": "how to find directory",
+			"back": "pwd"
+		},
+		{
+			"suuid": "xeKXzj",
+			"category": "linux",
+			"vorne": "how to find directory",
+			"back": "pwd"
+		},
+		{
+			"suuid": "tw59Hs",
+			"category": "linux",
+			"back": "pwd"
+		},
+		{
+			"suuid": "75sYYm",
+			"category": "linux",
+			"back": "pwd"
+		},
+		{
+			"suuid": "2Rz81V",
+			"category": "linux",
+			"front": "find out the current directory",
+			"back": "pwd"
+		},
+		{
+			"suuid": "82Js23",
+			"category": "linux",
+			"front": "how to find out your Linux shell",
+			"back": "echo $0"
+		},
+		{
+			"suuid": "2Jjq4a",
+			"category": "git",
+			"front": "get back file from staging area to working directory, i.e. unstage a file",
+			"back": "git reset [file]"
+		},
+		{
+			"suuid": "891As1",
+			"category": "git",
+			"front": "show commit history with hash, title, author",
+			"back": "git log --pretty=format:\"%h - %s - %an\" "
+		},
+		{
+			"suuid": "3bCd45",
+			"category": "linux",
+			"front": "navigate to the home directory",
+			"back": "cd ~"
+		},
+		{
+			"suuid": "7iJk89",
+			"category": "linux",
+			"front": "create a new file",
+			"back": "touch index.html"
+		}
+	]
 }
