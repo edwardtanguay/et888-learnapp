@@ -6,7 +6,7 @@ export const getPort = () => {
 
 export const apiStatus = (): IApiStatus => {
 	return {
-		status: "maintenanceMode",
-		whenLiveAgainDateTime: ""
+		status: "live",
+		whenLiveAgainDateTime: "2024-01-15 11:00:00"
 	}
 }
