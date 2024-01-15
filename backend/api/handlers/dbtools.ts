@@ -4,15 +4,20 @@ import { Low } from 'lowdb';
 import { IDatabase } from '../../../src/shared/interfaces';
 
 export const getDb = async () => {
-	const projectBasePath = process.cwd();
-	const dbPathAndFileName = join(projectBasePath, 'backend/data/db.json');
-	const adapter = new JSONFile<IDatabase>(dbPathAndFileName);
-	const db: Low<IDatabase> = new Low<IDatabase>(adapter, {} as IDatabase);
-	await db.read();
-	if (Object.keys(db.data).length === 0) {
+	try {
+		const projectBasePath = process.cwd();
+		const dbPathAndFileName = join(projectBasePath, 'backend/data/db.json');
+		const adapter = new JSONFile<IDatabase>(dbPathAndFileName);
+		const db: Low<IDatabase> = new Low<IDatabase>(adapter, {} as IDatabase);
+		await db.read();
+		if (Object.keys(db.data).length === 0) {
+			return null;
+		} else {
+			return db;
+		}
+	}
+	catch (e) {
 		return null;
-	} else {
-		return db;
 	}
 }
 
