@@ -1,66 +1,6 @@
 {
   "flashcards": [
     {
-      "suuid": "gn4uzj",
-      "category": "linux",
-      "front": "dfdfd",
-      "back": "333"
-    },
-    {
-      "suuid": "WBdPmC",
-      "category": "linux",
-      "front": "222",
-      "back": "333"
-    },
-    {
-      "suuid": "s5LRr3",
-      "category": "linux",
-      "front": "sdfsdf",
-      "back": "pwd",
-      "createAt": "2024-01-15T13:20:06.289Z"
-    },
-    {
-      "suuid": "QOuW9L",
-      "category": "linux",
-      "front": "sdfsdf",
-      "back": "pwd",
-      "createAt": "1705324715555"
-    },
-    {
-      "suuid": "ufE0bE",
-      "category": "linux",
-      "front": "sdfsdf",
-      "back": "pwd"
-    },
-    {
-      "suuid": "xrMlOa",
-      "category": "linux",
-      "front": "sdfsdf",
-      "back": "pwd"
-    },
-    {
-      "suuid": "y83bPk",
-      "category": "linux",
-      "front": "how to find directory",
-      "back": "pwd"
-    },
-    {
-      "suuid": "xeKXzj",
-      "category": "linux",
-      "vorne": "how to find directory",
-      "back": "pwd"
-    },
-    {
-      "suuid": "tw59Hs",
-      "category": "linux",
-      "back": "pwd"
-    },
-    {
-      "suuid": "75sYYm",
-      "category": "linux",
-      "back": "pwd"
-    },
-    {
       "suuid": "2Rz81V",
       "category": "linux",
       "front": "find out the current directory",

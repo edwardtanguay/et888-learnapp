@@ -1,9 +1,9 @@
 import { useState } from "react";
 import db from "../../backend/data/db.json";
 import { Flashcard } from "../components/Flashcard";
-import { ITestingFlashcard, convertFlashcardToTestingFlaschard } from "../shared/interfaces";
+import { IFlashcard, ITestingFlashcard, convertFlashcardToTestingFlaschard } from "../shared/interfaces";
 
-const _flashcards = db.flashcards;
+const _flashcards: IFlashcard[] = db.flashcards;
 const _testingFlashcards: ITestingFlashcard[] = [];
 for (const _flashcard of _flashcards) {
 	const _testingFlashcard: ITestingFlashcard = convertFlashcardToTestingFlaschard(_flashcard);
