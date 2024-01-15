@@ -9,7 +9,11 @@ export const getDb = async () => {
 	const adapter = new JSONFile<IDatabase>(dbPathAndFileName);
 	const db: Low<IDatabase> = new Low<IDatabase>(adapter, {} as IDatabase);
 	await db.read();
-	return db;
+	if (Object.keys(db.data).length === 0) {
+		return null;
+	} else {
+		return db;
+	}
 }
 
 export const getSuuid = () => {

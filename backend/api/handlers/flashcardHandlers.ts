@@ -4,10 +4,16 @@ import { getDb, getSuuid } from './dbtools';
 const db = await getDb();
 
 export const getAllFlashcards = () => {
+	if (db === null) {
+		throw new Error('ERROR: database does not exist');
+	}
 	return db.data.flashcards;
 }
 
 export const getOneFlashcard = (suuid: string) => {
+	if (db === null) {
+		throw new Error('ERROR: database does not exist');
+	}
 	const flashcard = db.data.flashcards.find(m => m.suuid === suuid);
 
 	if (flashcard) {
@@ -18,6 +24,9 @@ export const getOneFlashcard = (suuid: string) => {
 }
 
 export const addFlashcard = async (newFlashcard: INewFlashcard) => {
+	if (db === null) {
+		throw new Error('ERROR: database does not exist');
+	}
 	const flashcard: IFlashcard = {
 		suuid: getSuuid(),
 		...newFlashcard,
@@ -28,6 +37,9 @@ export const addFlashcard = async (newFlashcard: INewFlashcard) => {
 }
 
 export const replaceFlashcard = async (replacementFlashcard: IFlashcard) => {
+	if (db === null) {
+		throw new Error('ERROR: database does not exist');
+	}
 	const formerFlashcard = db.data.flashcards.find(m => m.suuid === replacementFlashcard.suuid);
 	if (formerFlashcard) {
 		formerFlashcard.category = replacementFlashcard.category;
@@ -41,6 +53,9 @@ export const replaceFlashcard = async (replacementFlashcard: IFlashcard) => {
 }
 
 export const replaceSomeFieldsInFlashcard = async (suuid: string, patchFlashcard: IPatchFlashcard) => {
+	if (db === null) {
+		throw new Error('ERROR: database does not exist');
+	}
 	const formerFlashcard = db.data.flashcards.find(m => m.suuid === suuid);
 	if (formerFlashcard) {
 		if (patchFlashcard.category) formerFlashcard.category = patchFlashcard.category;
@@ -54,6 +69,9 @@ export const replaceSomeFieldsInFlashcard = async (suuid: string, patchFlashcard
 }
 
 export const deleteFlashcard = async (suuid: string) => {
+	if (db === null) {
+		throw new Error('ERROR: database does not exist');
+	}
 	const flashcard = db.data.flashcards.find(m => m.suuid === suuid);
 	const indexToRemove = db.data.flashcards.findIndex(item => item.suuid === suuid);
 	if (indexToRemove !== -1) {
