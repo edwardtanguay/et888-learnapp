@@ -2,6 +2,7 @@ import { Router } from 'express';
 import * as flashcardHandlers from '../handlers/flashcardHandlers';
 import { IFlashcard, INewFlashcard, IPatchFlashcard } from '../../../src/shared/interfaces';
 import { flashcardSuuidValidate } from '../middleware/flashcardSuuidValidate';
+import { flashcardPostCleanAndValidate } from '../middleware/flashcardPostCleanAndValidate ';
 
 export const flashcardRouter = Router();
 
@@ -20,7 +21,7 @@ flashcardRouter.get('/:suuid', flashcardSuuidValidate, (req, res) => {
 	}
 });
 
-flashcardRouter.post('/', async (req, res) => {
+flashcardRouter.post('/', flashcardPostCleanAndValidate, async (req, res) => {
 	const newFlashcard: INewFlashcard = req.body;
 	const flashcard = await flashcardHandlers.addFlashcard(newFlashcard);
 	res.status(201).json(flashcard);

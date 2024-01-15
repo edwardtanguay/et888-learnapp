@@ -1,6 +1,34 @@
 {
   "flashcards": [
     {
+      "suuid": "xrMlOa",
+      "category": "linux",
+      "front": "sdfsdf",
+      "back": "pwd"
+    },
+    {
+      "suuid": "y83bPk",
+      "category": "linux",
+      "front": "how to find directory",
+      "back": "pwd"
+    },
+    {
+      "suuid": "xeKXzj",
+      "category": "linux",
+      "vorne": "how to find directory",
+      "back": "pwd"
+    },
+    {
+      "suuid": "tw59Hs",
+      "category": "linux",
+      "back": "pwd"
+    },
+    {
+      "suuid": "75sYYm",
+      "category": "linux",
+      "back": "pwd"
+    },
+    {
       "suuid": "2Rz81V",
       "category": "linux",
       "front": "find out the current directory",
