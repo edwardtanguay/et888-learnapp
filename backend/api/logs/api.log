@@ -23,3 +23,25 @@
 {"contentLength":"8","level":"http","message":"incoming-request","method":"GET","remoteAddr":"::1","responseTime":"1.989","status":"200","timestamp":"2024-01-15T14:05:21.275Z","url":"/api/flashcards/info"}
 {"contentLength":"166","level":"http","message":"incoming-request","method":"GET","remoteAddr":"::1","responseTime":"2.325","status":"400","timestamp":"2024-01-15T14:05:42.973Z","url":"/api/flashcards/info"}
 {"contentLength":"14","level":"http","message":"incoming-request","method":"GET","remoteAddr":"::1","responseTime":"0.593","status":"200","timestamp":"2024-01-15T14:05:47.438Z","url":"/api/flashcards/info/logs"}
+{"contentLength":"903","level":"http","message":"incoming-request","method":"GET","remoteAddr":"::1","responseTime":"5.521","status":"200","timestamp":"2024-01-15T14:09:12.475Z","url":"/api/flashcards/info/logs"}
+{"contentLength":"172","level":"http","message":"incoming-request","method":"GET","remoteAddr":"::ffff:127.0.0.1","responseTime":"1.396","status":"404","timestamp":"2024-01-15T14:09:23.788Z","url":"/api/learn101/flashcards/info/logs"}
+{"contentLength":"903","level":"http","message":"incoming-request","method":"GET","remoteAddr":"::ffff:127.0.0.1","responseTime":"1.715","status":"200","timestamp":"2024-01-15T14:09:32.829Z","url":"/api/flashcards/info/logs"}
+{"contentLength":"12732","level":"http","message":"incoming-request","method":"GET","remoteAddr":"::ffff:127.0.0.1","responseTime":"43.410","status":"200","timestamp":"2024-01-15T14:10:00.344Z","url":"/api/flashcards/info/logs"}
+{"level":"warn","message":"user tried to delete following suuid: 8293jj","timestamp":"2024-01-15T14:10:21.521Z"}
+{"contentLength":"44","level":"http","message":"incoming-request","method":"DELETE","remoteAddr":"::1","responseTime":"1.343","status":"404","timestamp":"2024-01-15T14:10:21.522Z","url":"/api/flashcards/8293jj"}
+{"contentLength":"14031","level":"http","message":"incoming-request","method":"GET","remoteAddr":"::ffff:127.0.0.1","responseTime":"49.718","status":"200","timestamp":"2024-01-15T14:10:24.133Z","url":"/api/flashcards/info/logs"}
+{"contentLength":"14479","level":"http","message":"incoming-request","method":"GET","remoteAddr":"::ffff:127.0.0.1","responseTime":"43.313","status":"200","timestamp":"2024-01-15T14:10:37.180Z","url":"/api/flashcards/info/logs"}
+{"level":"error","message":"ERROR: database does not exist","timestamp":"2024-01-15T14:11:03.060Z"}
+{"contentLength":"106","level":"http","message":"incoming-request","method":"GET","remoteAddr":"::1","responseTime":"4.785","status":"500","timestamp":"2024-01-15T14:11:03.067Z","url":"/api/flashcards"}
+{"level":"error","message":"ERROR: database does not exist","timestamp":"2024-01-15T14:11:07.664Z"}
+{"contentLength":"106","level":"http","message":"incoming-request","method":"GET","remoteAddr":"::1","responseTime":"1.117","status":"500","timestamp":"2024-01-15T14:11:07.665Z","url":"/api/flashcards"}
+{"level":"error","message":"ERROR: database does not exist","timestamp":"2024-01-15T14:11:08.896Z"}
+{"contentLength":"106","level":"http","message":"incoming-request","method":"GET","remoteAddr":"::1","responseTime":"1.106","status":"500","timestamp":"2024-01-15T14:11:08.897Z","url":"/api/flashcards"}
+{"contentLength":"1270","level":"http","message":"incoming-request","method":"GET","remoteAddr":"::1","responseTime":"1.979","status":"200","timestamp":"2024-01-15T14:11:14.852Z","url":"/api/flashcards"}
+{"contentLength":"17832","level":"http","message":"incoming-request","method":"GET","remoteAddr":"::ffff:127.0.0.1","responseTime":"55.720","status":"200","timestamp":"2024-01-15T14:11:19.333Z","url":"/api/flashcards/info/logs"}
+{"contentLength":"1270","level":"http","message":"incoming-request","method":"GET","remoteAddr":"::ffff:127.0.0.1","responseTime":"2.146","status":"200","timestamp":"2024-01-15T14:12:10.843Z","url":"/api/flashcards"}
+{"contentLength":"64","level":"http","message":"incoming-request","method":"POST","remoteAddr":"::ffff:127.0.0.1","responseTime":"5.293","status":"201","timestamp":"2024-01-15T14:12:20.458Z","url":"/api/flashcards"}
+{"contentLength":"59","level":"http","message":"incoming-request","method":"POST","remoteAddr":"::ffff:127.0.0.1","responseTime":"1.734","status":"400","timestamp":"2024-01-15T14:12:26.135Z","url":"/api/flashcards"}
+{"contentLength":"66","level":"http","message":"incoming-request","method":"POST","remoteAddr":"::ffff:127.0.0.1","responseTime":"3.590","status":"201","timestamp":"2024-01-15T14:12:49.269Z","url":"/api/flashcards"}
+{"contentLength":"42","level":"http","message":"incoming-request","method":"GET","remoteAddr":"::ffff:127.0.0.1","responseTime":"1.987","status":"200","timestamp":"2024-01-15T14:13:15.388Z","url":"/"}
+{"contentLength":"42","level":"http","message":"incoming-request","method":"GET","remoteAddr":"::ffff:192.168.118.1","responseTime":"0.351","status":"200","timestamp":"2024-01-15T14:36:11.205Z","url":"/"}

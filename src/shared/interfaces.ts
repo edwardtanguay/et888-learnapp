@@ -47,12 +47,12 @@ export const convertFlashcardToFrontendFlaschard = (flashcard: IFlashcard): IFro
 }
 
 export const convertFrontendFlashcardToFlaschard = (frontendFlashcard: IFrontendFlashcard): IFlashcard => {
-    return {
-        suuid: frontendFlashcard.suuid,
-        category: frontendFlashcard.category,
-        front: frontendFlashcard.front,
-        back: frontendFlashcard.back
-    }
+	return {
+		suuid: frontendFlashcard.suuid,
+		category: frontendFlashcard.category,
+		front: frontendFlashcard.front,
+		back: frontendFlashcard.back
+	}
 }
 
 export type ISiteEnvironment = "development" | "production";
@@ -67,4 +67,15 @@ export const convertFlashcardToTestingFlaschard = (flashcard: IFlashcard): ITest
 export type IApiStatus = {
 	status: "live" | "maintenanceMode",
 	whenLiveAgainDateTime: string
+}
+
+export interface ILogItem {
+	timestamp: string;
+	level: string;
+	message: string;
+	method: string;
+	status: string;
+	remoteAddr: string;
+	url: string;
+	responseTime: string;
 }
