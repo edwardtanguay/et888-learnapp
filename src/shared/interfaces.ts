@@ -63,3 +63,8 @@ export const convertFlashcardToTestingFlaschard = (flashcard: IFlashcard): ITest
 		backIsShowing: false
 	}
 }
+
+export type IApiStatus = {
+	status: "live" | "maintenanceMode",
+	whenLiveAgainDateTime: string
+}
