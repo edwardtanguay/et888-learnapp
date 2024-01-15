@@ -5,3 +5,6 @@
 {"level":"error","message":"ERROR: database does not exist","timestamp":"2024-01-15T12:50:49.785Z"}
 {"level":"error","message":"ERROR: database does not exist","timestamp":"2024-01-15T12:58:05.050Z"}
 {"level":"error","message":"ERROR: database does not exist","timestamp":"2024-01-15T13:00:17.778Z"}
+{"contentLength":"1001","level":"http","message":"incoming-request","method":"GET","remoteAddr":"::1","responseTime":"2.092","status":"200","timestamp":"2024-01-15T13:06:27.529Z","url":"/api/flashcards"}
+{"contentLength":"1001","level":"http","message":"incoming-request","method":"GET","remoteAddr":"::ffff:127.0.0.1","responseTime":"0.415","status":"200","timestamp":"2024-01-15T13:08:18.116Z","url":"/api/flashcards"}
+{"contentLength":"67","level":"http","message":"incoming-request","method":"POST","remoteAddr":"::1","responseTime":"3.482","status":"201","timestamp":"2024-01-15T13:11:34.759Z","url":"/api/flashcards"}

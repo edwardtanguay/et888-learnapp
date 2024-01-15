@@ -3,12 +3,13 @@ import express, { NextFunction } from 'express';
 import { flashcardRouter } from './routers/flashcardRouter';
 import cors from 'cors';
 import { maintenanceMode } from './middleware/maintenanceMode';
-import { logger } from './logger';
+import { logger, morganRouteLogger } from './logger';
 
 export const app = express();
 app.use(express.json());
 app.use(cors());
 app.use(maintenanceMode);
+app.use(morganRouteLogger);
 
 app.get('/', (req, res) => {
 	res.json({
