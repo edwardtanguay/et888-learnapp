@@ -12,7 +12,7 @@ app.use(maintenanceMode);
 app.use(morganRouteLogger);
 
 app.get('/', (req, res) => {
-	res.status(201).json({
+	res.json({
 		appName: "API for AppLearn version 0.1"
 	})
 });
