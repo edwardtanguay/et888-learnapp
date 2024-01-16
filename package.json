@@ -11,7 +11,7 @@
 		"lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
 		"preview": "vite preview",
 		"pretty": "prettier --write \"./**/*.{js,jsx,mjs,cjs,ts,tsx,json}\"",
-		"test": "vitest"
+		"test": "vitest --ui"
 	},
 	"nodemonConfig": {
 		"watch": [
@@ -41,6 +41,7 @@
 		"@typescript-eslint/eslint-plugin": "^6.0.0",
 		"@typescript-eslint/parser": "^6.0.0",
 		"@vitejs/plugin-react": "^4.0.3",
+		"@vitest/ui": "^1.2.0",
 		"autoprefixer": "^10.4.16",
 		"axios": "^1.6.5",
 		"concurrently": "^8.2.2",
