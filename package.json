@@ -7,7 +7,7 @@
 		"dev": "conc \"npm run api\" \"npm run frontend\"",
 		"api": "nodemon",
 		"frontend": "vite --port 4205 --open",
-		"build": "tsc && vite build",
+		"build": "tsc && vitest --run && vite build",
 		"lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
 		"preview": "vite preview",
 		"pretty": "prettier --write \"./**/*.{js,jsx,mjs,cjs,ts,tsx,json}\"",
