@@ -5,7 +5,6 @@ export const flashcardInfoRouter = Router();
 
 flashcardInfoRouter.get('/logs', async (req, res) => {
 	const logs = await getArrayOfLogObjects();
-	console.log(logs);
 	res.send(`
 <html>
     <head>
