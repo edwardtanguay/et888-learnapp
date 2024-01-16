@@ -4,6 +4,7 @@ import { app } from "./server";
 
 describe('GET /', async () => {
 	const response = await request(app).get('/');
+	const responseBody = JSON.parse(response.text);
 
 	it('receives the correct HTTP code', () => {
 		expect(response.statusCode).toBe(200);
@@ -14,9 +15,12 @@ describe('GET /', async () => {
 	});
 
 	it('contains the correct property', () => {
-		const responseBody:string = JSON.parse(response.text);
 		expect(responseBody).toHaveProperty('applicationName');
+	});
 
+	it('applicationName has a value', () => {
+		expect(responseBody.applicationName).not.toBe('');
 	})
+
 
 })
