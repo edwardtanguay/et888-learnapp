@@ -1,8 +1,22 @@
-import { test, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import request from 'supertest';
 import { app } from "./server";
 
-test('GET /', async () => {
+describe('GET /', async () => {
 	const response = await request(app).get('/');
-	expect(response.statusCode).toBe(200);
+
+	it('receives the correct HTTP code', () => {
+		expect(response.statusCode).toBe(200);
+	});
+
+	it('has the correct content-type', () => {
+		expect(response.headers['content-type']).toMatch(/application\/json/);
+	});
+
+	it('contains the correct property', () => {
+		const responseBody:string = JSON.parse(response.text);
+		expect(responseBody).toHaveProperty('applicationName');
+
+	})
+
 })

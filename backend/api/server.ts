@@ -13,7 +13,7 @@ app.use(morganRouteLogger);
 
 app.get('/', (req, res) => {
 	res.json({
-		appName: "API for AppLearn version 0.1"
+		applicationName: "API for AppLearn version 0.1"
 	})
 });
 
